@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OnlineJobs.ph Job Watcher — Settings</title>
+    <link rel="stylesheet" href="ui.css" />
+    <style>body { max-width: 560px; }</style>
+  </head>
+  <body>
+    <h1>OnlineJobs.ph Job Watcher</h1>
+    <p class="hint">
+      Checks OnlineJobs.ph search results on a schedule and notifies you when a
+      post you have not seen before shows up.
+    </p>
+
+    <form id="form">
+      <label class="inline">
+        <input type="checkbox" id="enabled" />
+        Watch for new posts
+      </label>
+
+      <label for="keywords">Keywords</label>
+      <input type="text" id="keywords" placeholder="webflow, webflow developer" />
+      <p class="hint">Comma separated. One search is run per keyword.</p>
+
+      <label for="matchMode">Notify when the job title…</label>
+      <select id="matchMode">
+        <option value="any">contains any keyword</option>
+        <option value="all">contains every keyword</option>
+        <option value="none">— don't filter, notify on any new search result</option>
+      </select>
+
+      <label for="excludeKeywords">Never notify if the title contains</label>
+      <input type="text" id="excludeKeywords" placeholder="intern, unpaid" />
+
+      <label for="intervalMinutes">Check every (minutes)</label>
+      <input type="number" id="intervalMinutes" min="5" max="1440" step="1" />
+      <p class="hint">Minimum 5 minutes, to stay polite to the site.</p>
+
+      <label for="maxNotifications">Collapse into one summary above (notifications)</label>
+      <input type="number" id="maxNotifications" min="1" max="10" step="1" />
+
+      <label for="customUrls">Custom search URLs (optional)</label>
+      <textarea id="customUrls" placeholder="https://www.onlinejobs.ph/jobseekers/jobsearch?jobkeyword=webflow"></textarea>
+      <p class="hint">
+        One per line, onlinejobs.ph only. Set this to watch a filtered search
+        instead of the plain keyword search — run the search on the site, then
+        paste the resulting URL here. Leave empty to search each keyword above.
+      </p>
+
+      <div class="row">
+        <button type="submit">Save</button>
+        <button type="button" id="test" class="secondary">Save &amp; check now</button>
+        <button type="button" id="reset" class="secondary">Forget seen posts</button>
+      </div>
+    </form>
+    <div class="status" id="status"></div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

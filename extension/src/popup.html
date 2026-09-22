@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OnlineJobs.ph Job Watcher</title>
+    <link rel="stylesheet" href="ui.css" />
+    <style>body { width: 340px; }</style>
+  </head>
+  <body>
+    <h1>OnlineJobs.ph Job Watcher</h1>
+    <p class="hint" id="watching"></p>
+
+    <div class="row">
+      <button id="check">Check now</button>
+      <button id="options" class="secondary">Settings</button>
+    </div>
+    <div class="status" id="status"></div>
+
+    <h2>Recent matches</h2>
+    <ul class="jobs" id="jobs"></ul>
+    <p class="empty" id="empty" hidden>Nothing yet. New posts show up here.</p>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

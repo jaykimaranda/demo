@@ -1,0 +1,77 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #5b6470;
+  --border: #e2e5e9;
+  --accent: #1a73e8;
+  --ok: #137333;
+  --err: #c5221f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f2124;
+    --fg: #e8eaed;
+    --muted: #9aa0a6;
+    --border: #3c4043;
+    --accent: #8ab4f8;
+    --ok: #81c995;
+    --err: #f28b82;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 16px;
+  font: 13px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+h1 { font-size: 15px; margin: 0 0 4px; }
+h2 { font-size: 13px; margin: 20px 0 8px; }
+p.hint { color: var(--muted); margin: 4px 0 0; font-size: 12px; }
+
+label { display: block; margin-top: 14px; font-weight: 600; }
+input[type="text"], input[type="number"], textarea, select {
+  width: 100%;
+  margin-top: 4px;
+  padding: 7px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+}
+textarea { min-height: 62px; resize: vertical; }
+label.inline { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+label.inline input { width: auto; margin: 0; }
+
+button {
+  margin-top: 16px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.secondary { background: transparent; color: var(--accent); }
+button:disabled { opacity: 0.6; cursor: default; }
+
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.status { margin-top: 12px; font-size: 12px; color: var(--muted); }
+.status.ok { color: var(--ok); }
+.status.err { color: var(--err); }
+
+ul.jobs { list-style: none; margin: 8px 0 0; padding: 0; }
+ul.jobs li { padding: 8px 0; border-top: 1px solid var(--border); }
+ul.jobs a { color: var(--accent); text-decoration: none; font-weight: 600; }
+ul.jobs a:hover { text-decoration: underline; }
+ul.jobs .when { display: block; color: var(--muted); font-size: 11px; }
+.unread a::before { content: "● "; color: var(--err); }
+.empty { color: var(--muted); padding: 12px 0; }
